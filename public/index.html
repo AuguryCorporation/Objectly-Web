@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Objectly Identity Federation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+        /* Sticky footer styles
+        -------------------------------------------------- */
+
+        html,
+        body {
+            height: 100%;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+            min-height: 100%;
+            height: auto;
+            /* Negative indent footer by its height */
+            margin: 0 auto -80px;
+            /* Pad bottom by footer height */
+            padding: 0 0 80px;
+        }
+
+        /* Set the fixed height of the footer here */
+        #footer {
+            height: 80px;
+            background-color: #f5f5f5;
+        }
+
+        /* Custom page CSS
+        -------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+
+        /* container inside a #footer ID */
+        #footer .container {
+            width: auto;
+            max-width: 680px;
+            padding: 0 15px;
+        }
+
+        #footer .container .credit {
+            margin: 20px 0;
+        }
+    </style>
+
+
+    <style type="text/css">
+
+        /* Jumbotron styles
+        -------------------------------------------------- */
+
+        /* Custom container */
+        .container-narrow {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+        /* Main marketing message and sign up button */
+        .jumbotron {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 50px;
+            line-height: 1;
+        }
+
+        .jumbotron .btn {
+            font-size: 21px;
+            padding: 14px 24px;
+        }
+
+    </style>
+    <!-- URl Parsing library to read query parameter -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><style type="text/css"></style>
+    <script type="text/javascript" src="https://identity-demo.aws-emea.info/static/js/purl.js"></script>
+    
+    
+    
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body class=" hasGoogleVoiceExt">
+
+<!-- wrap is specific to push footer down of the page -->
+<div id="wrap">
+    <!--navbar -->
+
+    <div class="container-narrow">
+
+        
+
+
+<div id="login">
+    <link href="https://identity-demo.aws-emea.info/static/css/login-button-widget.css" rel="stylesheet">
+
+    <div class="jumbotron">
+        <h1>Objectly Identity Federation</h1>
+
+        <p class="lead">
+
+        </p><p class="lead">You do not have permission to access 
+            <a href="http://objectly-s3-test.s3.amazonaws.com/">'objectly-s3-test'</a>.<br>
+            Try opening it and you will get "access denied".<br>
+        <p class="lead">However, if you login to one of these 3 service providers you will be granted permission to view the folder and access files.</p>
+    </div>
+
+    <div id="widget" class="widget">
+        <div id="view">
+            <div id="pages">
+                <ul class="providers">
+                    <li id="amazon" class="on">
+                        <span style="text-indent: -9999px; display: inline-block;">amazon</span>
+                    </li>
+                </ul>
+                <ul class="providers col2">
+                    <li id="facebook" class="on">
+                        <span style="text-indent: -9999px; display: inline-block;">facebook</span>
+                    </li>
+                    <li id="google" class="on">
+                        <span style="text-indent: -9999px; display: inline-block;">google</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- pages -->
+        </div>
+        <!-- view -->
+    </div>
+    <!-- widget -->
+
+</div>
+
+<!--
+    Wait Screen
+-->
+<div id="wait" style="position: fixed;top: 50%;left: 50%;margin-top: -55px;margin-left: -30px;display:none">
+    <img src="https://identity-demo.aws-emea.info/static/img/ajax-loader.gif">
+</div>
+
+<!--
+    Result Screen
+-->
+<div id="result" style="display:none">
+    <div class="jumbotron">
+        <h1>Content of 'objectly-s3-test'</h1>
+    </div>
+    <div id="result_table"></div>
+</div>
+
+<!--
+    Error Screen
+-->
+
+<div id="error" class="jumbotron" style="display:none">
+    <h1>Error</h1>
+
+    <p class="lead">An error has occurred while you tried to authenticate. Maybe you did not authorize this application
+        to access your profile ?</p>
+    <a class="btn btn-large btn-inverse" href="/">Try Again</a>
+</div>
+
+<!-- AWS SDK -->
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.39.min.js"></script>
+
+<!-- FB IDP SDK -->
+<script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+
+<!-- AMZN IDP SDK -->
+<script type="text/javascript" src="//api-cdn.amazon.com/sdk/login1.js"></script>
+<!-- GOOG IDP SDK -->
+<script type="text/javascript" src="//apis.google.com/js/client.js?onload=handleClientLoad" gapi_processed="true"></script>
+
+<script>
+    //used to login with these IDP and get user profile
+    var FBappId      = '1454025524899305';
+    var AMZNappId    = 'amzn1.application-oa2-client.3fe13246711f4bc5b5b2a237e5531533';
+    var GoogleAppId  = '544477679240-d3t3npf811sc5sfg9qtaqtq6o3hcnd1m.apps.googleusercontent.com';
+    var GoogleAPIKey = 'AIzaSyCY3v4_TLMg-WTJh8yHKAoV8DzxEzrUrRc';
+
+    //used to initialize Cognito Id
+    var CognitoIdentityPoolId = 'us-east-1:7399d4c6-6dd0-4c77-9686-b82c00458e79'
+
+    var bucketName   = 'objectly-s3-test';
+
+    function showWaitScreen() {
+        $("div#login").fadeOut();
+        $("div#wait").show();
+    }
+
+    function showErrorScreen() {
+        $("div#login").hide();
+        $("div#wait").hide();
+        $("div#error").show();
+    }
+
+    function showResultScreen() {
+        $("div#wait").hide();
+        $("div#result").fadeIn();
+    }
+
+    $(document).ready(function () {
+
+        //highlight Cognito entry in the tab bar
+        $("#home").attr('class', '');
+        $("#js").attr('class', '');
+        $("#cognito").attr('class', 'active');
+
+        //use args provided as callback by Amazon Identity provider
+        var access_token = $.url().param('access_token');
+        if (access_token != null) {
+            showWaitScreen();
+            loadS3Bucket(access_token, 'www.amazon.com');
+        }
+    });
+
+    $("li#google").click(function () {
+        // get authorization to use private data
+        var  scopes = 'https://www.googleapis.com/auth/plus.me';
+        gapi.auth.authorize({client_id: GoogleAppId, scope: scopes, immediate: false, response_type:"token id_token"}, function(authResult) {
+            if (authResult && !authResult.error) {
+                console.log('--- Google Authentication successful');
+                console.log(authResult);
+
+                showWaitScreen();
+                loadS3Bucket(authResult.id_token, 'accounts.google.com');
+            } else {
+                console.log('--- Google Authentication failed');
+                showErrorScreen();
+            }
+        });
+        return false;
+    });
+
+    $("li#amazon").click(function () {
+        options = { scope: 'profile' };
+        amazon.Login.setClientId(AMZNappId);
+        console.log('--- current URL : ' + document.URL);
+        amazon.Login.authorize(options, document.URL);
+        return false;
+    });
+
+    $("li#facebook").click(function () {
+        FB.init({ appId: FBappId });
+        FB.login(function (response) {
+
+            if (response.authResponse) {
+                console.log('--- FB login OK');
+                showWaitScreen();
+                loadS3Bucket(response.authResponse.accessToken, 'graph.facebook.com');
+
+                //FB.api('/me', function(response) {
+                //console.log('Good to see you, ' + response.name + '.');
+                //});
+
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        });
+    });
+
+    function loadS3Bucket(accessToken, provider) {
+        console.log('--- loadS3Bucket with accessToken = ' + accessToken);
+        console.log('                      provider    = ' + provider);
+
+        AWS.config.region = 'us-east-1';
+        cognitoCredentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: CognitoIdentityPoolId,
+            Logins: {}
+        });
+        cognitoCredentials.params.Logins[provider] = accessToken;
+        cognitoCredentials.expired = true; //just required when switching IDPs without reloading the page
+        //console.log(cognitoCredentials)
+
+        AWS.config.credentials = cognitoCredentials;
+
+        console.log('Refreshing Cognito Credentials')
+        cognitoCredentials.refresh(function(err) {
+
+            if (err) {
+                console.log('Cognito failed to refresh : ' + err)
+                showErrorScreen();
+                return false;
+            }
+
+            var s3 = new AWS.S3();
+
+            console.log('--- listObjects with bucket=' + bucketName + '\nand credentials=' + s3.config.credentials);
+            s3.listObjects(params = {Bucket: bucketName}, function (err, data) {
+
+                if (err) {
+                    console.log(err);
+                    showErrorScreen();
+                    return false;
+                }
+
+                console.log(data);
+
+                //prepare result
+                var table = $('<table></table>').addClass('table').addClass('table-striped');
+                table.append('<tr><th>#</th><th>Name</th></tr>');
+                for (i = 0; i < data.Contents.length; i++) {
+                    var key = data.Contents[i].Key;
+                    var params = {Bucket: bucketName, Key: key};
+                    var url = s3.getSignedUrl('getObject', params);
+                    var row = $('<tr><td>' + i + '</td><td><a href=' + url + '>' + key + '</a></td></tr>');
+                    table.append(row);
+                }
+                $("div#result_table").append(table)
+
+                showResultScreen();
+
+            });
+
+        })
+
+    }
+
+    // Callback for Amazon SDK
+    window.onAmazonLoginReady = function () {
+        amazon.Login.setClientId(AMZNappId);
+    };
+
+    function onGoogleSDKLoaded() {
+        // Reference the API key
+        gapi.client.setApiKey(GoogleAPIKey);
+        //window.setTimeout(checkAuth,1);
+    };
+
+
+
+</script>
+
+
+    </div>
+    <!-- /container -->
+    <div id="push"></div>
+</div>
+<!-- wrap -->
+
+<div id="footer">
+    <div class="container">
+    </div>
+</div>
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+
+<iframe name="oauth2relay292952819" id="oauth2relay292952819" src="./cognito-demo_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><span class="_hsShareImage hsShareImage">&nbsp;</span></body></html>
